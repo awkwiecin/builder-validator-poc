@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using BuilderValidatorPOC;
+using System.Reflection;
+using System.Resources;
+
+Console.WriteLine("-- Validator POC --");
+ResourceManager resourceManager = new ResourceManager("BuilderValidatorPOC.RegexStrings", Assembly.GetExecutingAssembly()); 
+ValidatorTest.Run(resourceManager.GetString("EmailRegexString"),
+                  resourceManager.GetString("NameRegexString"));
